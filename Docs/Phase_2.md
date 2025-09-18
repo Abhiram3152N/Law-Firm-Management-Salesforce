@@ -1,7 +1,7 @@
 # Phase 2: Org Setup & Configuration
 
 ## Salesforce Editions
-- Selected the Salesforce edition that best fits the law firm's requirements (e.g., Sales Cloud, Service Cloud, or Enterprise Edition).  
+- Selected the Salesforce Developer edition that best fits the law firm's requirements.  
 - Considered features, storage limits, and scalability for future growth.
 
 ## Company Profile Setup
@@ -49,5 +49,5 @@
 - Ensured no impact on the production environment during development.
 
 ## Sandbox Usage
-- Set up sandbox environments (Developer, Developer Pro, or Partial Copy) for testing and training.  
+- Set up sandbox environments (Developer) for testing and training.  
 - Followed a sandbox refresh and deployment strategy to maintain data integrity.
