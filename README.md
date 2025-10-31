@@ -16,8 +16,8 @@ This project automates client intake, attorney assignment, billing closure, and 
 ---
 
 ##  Phases
-1. [Client Intake Flow](phase_1.md)
-2. [Prevent Duplicate Clients](phase_2.md)
-3. [Auto-Assign Attorney](phase_3.md)
-4. [Auto-Close Billing](phase_4.md)
-5. [Reports and Dashboard](phase_5.md)
+1. [Client Intake Flow](Docs/Phase_1.md)
+2. [Prevent Duplicate Clients](Docs/Phase_2.md)
+3. [Auto-Assign Attorney](Docs/Phase_3.md)
+4. [Auto-Close Billing](Docs/Phase_4.md)
+5. [Reports and Dashboard](Docs/Phase_5.md)
