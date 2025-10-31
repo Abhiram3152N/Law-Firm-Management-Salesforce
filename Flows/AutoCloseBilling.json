@@ -1,0 +1,247 @@
+{
+  "actionCalls": [],
+  "apexPluginCalls": [],
+  "apiVersion": 65,
+  "assignments": [],
+  "choices": [],
+  "collectionProcessors": [],
+  "constants": [],
+  "decisions": [],
+  "description": null,
+  "dynamicChoiceSets": [],
+  "environments": [
+    "Default"
+  ],
+  "exitRules": [],
+  "formulas": [],
+  "interviewLabel": "Auto-Close Billing {!$Flow.CurrentDateTime}",
+  "isAdditionalPermissionRequiredToRun": null,
+  "isOverridable": null,
+  "isTemplate": null,
+  "label": "Auto-Close Billing",
+  "loops": [],
+  "migratedFromWorkflowRuleName": null,
+  "orchestratedStages": [],
+  "overriddenFlow": null,
+  "processMetadataValues": [
+    {
+      "name": "BuilderType",
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "LightningFlowBuilder"
+      }
+    },
+    {
+      "name": "CanvasMode",
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "AUTO_LAYOUT_CANVAS"
+      }
+    },
+    {
+      "name": "OriginBuilderType",
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "LightningFlowBuilder"
+      }
+    }
+  ],
+  "processType": "AutoLaunchedFlow",
+  "recordCreates": [],
+  "recordDeletes": [],
+  "recordLookups": [
+    {
+      "assignNullValuesIfNoRecordsFound": false,
+      "connector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Update_Invoices_to_Paid"
+      },
+      "description": null,
+      "elementSubtype": null,
+      "faultConnector": null,
+      "filterLogic": "and",
+      "filters": [
+        {
+          "field": "Matter__c",
+          "operator": "EqualTo",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "$Record.Id",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        }
+      ],
+      "getFirstRecordOnly": false,
+      "label": "Get Invoices",
+      "locationX": 0,
+      "locationY": 0,
+      "name": "Get_Invoices",
+      "object": "Invoice__c",
+      "outputAssignments": [],
+      "outputReference": null,
+      "processMetadataValues": [],
+      "queriedFields": null,
+      "sortField": null,
+      "sortOrder": null,
+      "storeOutputAutomatically": true
+    }
+  ],
+  "recordRollbacks": [],
+  "recordUpdates": [
+    {
+      "connector": null,
+      "description": null,
+      "elementSubtype": null,
+      "faultConnector": null,
+      "filterLogic": "and",
+      "filters": [
+        {
+          "field": "Matter__c",
+          "operator": "EqualTo",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "$Record.Id",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        }
+      ],
+      "inputAssignments": [
+        {
+          "field": "Status__c",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": null,
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": "Paid"
+          }
+        }
+      ],
+      "inputReference": null,
+      "label": "Update Invoices to Paid",
+      "locationX": 0,
+      "locationY": 0,
+      "name": "Update_Invoices_to_Paid",
+      "object": "Invoice__c",
+      "processMetadataValues": []
+    }
+  ],
+  "runInMode": null,
+  "screens": [],
+  "sourceTemplate": null,
+  "start": {
+    "connector": {
+      "isGoTo": null,
+      "processMetadataValues": [],
+      "targetReference": "Get_Invoices"
+    },
+    "description": null,
+    "doesRequireRecordChangedToMeetCriteria": null,
+    "elementSubtype": null,
+    "filterFormula": null,
+    "filterLogic": "and",
+    "filters": [
+      {
+        "field": "Status__c",
+        "operator": "EqualTo",
+        "processMetadataValues": [],
+        "value": {
+          "apexValue": null,
+          "booleanValue": null,
+          "dateTimeValue": null,
+          "dateValue": null,
+          "elementReference": null,
+          "formulaDataType": null,
+          "formulaExpression": null,
+          "numberValue": null,
+          "setupReference": null,
+          "setupReferenceType": null,
+          "sobjectValue": null,
+          "stringValue": "Closed"
+        }
+      }
+    ],
+    "label": null,
+    "locationX": 0,
+    "locationY": 0,
+    "name": null,
+    "object": "Matter__c",
+    "objectContainer": null,
+    "processMetadataValues": [],
+    "recordTriggerType": "Update",
+    "schedule": null,
+    "scheduledPaths": [],
+    "segment": null,
+    "triggerType": "RecordAfterSave"
+  },
+  "startElementReference": null,
+  "status": "Active",
+  "steps": [],
+  "subflows": [],
+  "textTemplates": [],
+  "timeZoneSidKey": null,
+  "transforms": [],
+  "triggerOrder": null,
+  "urls": null,
+  "variables": [],
+  "waits": []
+}

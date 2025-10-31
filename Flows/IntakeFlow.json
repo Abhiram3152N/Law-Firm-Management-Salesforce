@@ -1,0 +1,817 @@
+{
+  "actionCalls": [],
+  "apexPluginCalls": [],
+  "apiVersion": 65,
+  "assignments": [
+    {
+      "assignmentItems": [
+        {
+          "assignToReference": "varClientId",
+          "operator": "Assign",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "Get_Existing_Client.Id",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        }
+      ],
+      "connector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Create_Matter"
+      },
+      "description": null,
+      "elementSubtype": null,
+      "label": "Assign Existing Client Id",
+      "locationX": 537,
+      "locationY": 506,
+      "name": "Assign_Existing_Client_Id",
+      "processMetadataValues": []
+    }
+  ],
+  "choices": [
+    {
+      "choiceIcon": null,
+      "choiceText": "Civil",
+      "dataType": "String",
+      "description": null,
+      "name": "Civil",
+      "processMetadataValues": [],
+      "userInput": null,
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "Civil"
+      }
+    },
+    {
+      "choiceIcon": null,
+      "choiceText": "Corporate",
+      "dataType": "String",
+      "description": null,
+      "name": "Corporate",
+      "processMetadataValues": [],
+      "userInput": null,
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "Corporate"
+      }
+    },
+    {
+      "choiceIcon": null,
+      "choiceText": "criminal",
+      "dataType": "String",
+      "description": null,
+      "name": "Criminal",
+      "processMetadataValues": [],
+      "userInput": null,
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "criminal"
+      }
+    },
+    {
+      "choiceIcon": null,
+      "choiceText": "Family",
+      "dataType": "String",
+      "description": null,
+      "name": "Family",
+      "processMetadataValues": [],
+      "userInput": null,
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "Family"
+      }
+    },
+    {
+      "choiceIcon": null,
+      "choiceText": "Labor",
+      "dataType": "String",
+      "description": null,
+      "name": "Labor",
+      "processMetadataValues": [],
+      "userInput": null,
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "Labor"
+      }
+    }
+  ],
+  "collectionProcessors": [],
+  "constants": [],
+  "decisions": [
+    {
+      "attributes": null,
+      "defaultConnector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Create_Client"
+      },
+      "defaultConnectorLabel": "No Client Found",
+      "description": null,
+      "elementSubtype": null,
+      "label": "Check if Client Exists",
+      "locationX": 669,
+      "locationY": 398,
+      "name": "Check_if_Client_Exists",
+      "processMetadataValues": [],
+      "rules": [
+        {
+          "attributes": null,
+          "conditionLogic": "and",
+          "conditions": [
+            {
+              "leftValueReference": "Get_Existing_Client.Id",
+              "operator": "IsNull",
+              "processMetadataValues": [],
+              "rightValue": {
+                "apexValue": null,
+                "booleanValue": false,
+                "dateTimeValue": null,
+                "dateValue": null,
+                "elementReference": null,
+                "formulaDataType": null,
+                "formulaExpression": null,
+                "numberValue": null,
+                "setupReference": null,
+                "setupReferenceType": null,
+                "sobjectValue": null,
+                "stringValue": null
+              }
+            }
+          ],
+          "connector": {
+            "isGoTo": null,
+            "processMetadataValues": [],
+            "targetReference": "Assign_Existing_Client_Id"
+          },
+          "description": null,
+          "doesRequireRecordChangedToMeetCriteria": null,
+          "label": "Client Found",
+          "name": "Client_Found",
+          "processMetadataValues": []
+        }
+      ]
+    }
+  ],
+  "description": null,
+  "dynamicChoiceSets": [],
+  "environments": [
+    "Default"
+  ],
+  "exitRules": [],
+  "formulas": [],
+  "interviewLabel": "Intake_Create_Client_and_Case {!$Flow.CurrentDateTime}",
+  "isAdditionalPermissionRequiredToRun": null,
+  "isOverridable": null,
+  "isTemplate": null,
+  "label": "Intake_Create_Client_and_Case",
+  "loops": [],
+  "migratedFromWorkflowRuleName": null,
+  "orchestratedStages": [],
+  "overriddenFlow": null,
+  "processMetadataValues": [
+    {
+      "name": "BuilderType",
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "LightningFlowBuilder"
+      }
+    },
+    {
+      "name": "CanvasMode",
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "FREE_FORM_CANVAS"
+      }
+    },
+    {
+      "name": "OriginBuilderType",
+      "value": {
+        "apexValue": null,
+        "booleanValue": null,
+        "dateTimeValue": null,
+        "dateValue": null,
+        "elementReference": null,
+        "formulaDataType": null,
+        "formulaExpression": null,
+        "numberValue": null,
+        "setupReference": null,
+        "setupReferenceType": null,
+        "sobjectValue": null,
+        "stringValue": "LightningFlowBuilder"
+      }
+    }
+  ],
+  "processType": "Flow",
+  "recordCreates": [
+    {
+      "assignRecordIdToReference": "varClientId",
+      "connector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Create_Matter"
+      },
+      "description": null,
+      "elementSubtype": null,
+      "faultConnector": null,
+      "inputAssignments": [
+        {
+          "field": "Email__c",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "txtEmail.value",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        },
+        {
+          "field": "Name",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "txtClientName",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        }
+      ],
+      "inputReference": null,
+      "label": "Create Client",
+      "locationX": 669,
+      "locationY": 698,
+      "name": "Create_Client",
+      "object": "Client__c",
+      "processMetadataValues": [],
+      "storeOutputAutomatically": null
+    },
+    {
+      "assignRecordIdToReference": "varMatterId",
+      "connector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Success_Screen"
+      },
+      "description": null,
+      "elementSubtype": null,
+      "faultConnector": null,
+      "inputAssignments": [
+        {
+          "field": "Client__c",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "varClientId",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        },
+        {
+          "field": "Description__c",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "txtDescription",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        },
+        {
+          "field": "Name",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "txtCaseName",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        },
+        {
+          "field": "Practice_Area__c",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "pickPracticeArea",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        },
+        {
+          "field": "Status__c",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": null,
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": "Open"
+          }
+        }
+      ],
+      "inputReference": null,
+      "label": "Create Matter",
+      "locationX": 669,
+      "locationY": 806,
+      "name": "Create_Matter",
+      "object": "Matter__c",
+      "processMetadataValues": [],
+      "storeOutputAutomatically": null
+    }
+  ],
+  "recordDeletes": [],
+  "recordLookups": [
+    {
+      "assignNullValuesIfNoRecordsFound": false,
+      "connector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Check_if_Client_Exists"
+      },
+      "description": null,
+      "elementSubtype": null,
+      "faultConnector": null,
+      "filterLogic": "and",
+      "filters": [
+        {
+          "field": "Name",
+          "operator": "EqualTo",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "txtClientName",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        },
+        {
+          "field": "Email__c",
+          "operator": "EqualTo",
+          "processMetadataValues": [],
+          "value": {
+            "apexValue": null,
+            "booleanValue": null,
+            "dateTimeValue": null,
+            "dateValue": null,
+            "elementReference": "txtEmail.value",
+            "formulaDataType": null,
+            "formulaExpression": null,
+            "numberValue": null,
+            "setupReference": null,
+            "setupReferenceType": null,
+            "sobjectValue": null,
+            "stringValue": null
+          }
+        }
+      ],
+      "getFirstRecordOnly": true,
+      "label": "Get Existing Client",
+      "locationX": 669,
+      "locationY": 290,
+      "name": "Get_Existing_Client",
+      "object": "Client__c",
+      "outputAssignments": [],
+      "outputReference": null,
+      "processMetadataValues": [],
+      "queriedFields": null,
+      "sortField": null,
+      "sortOrder": null,
+      "storeOutputAutomatically": true
+    }
+  ],
+  "recordRollbacks": [],
+  "recordUpdates": [],
+  "runInMode": null,
+  "screens": [
+    {
+      "allowBack": true,
+      "allowFinish": true,
+      "allowPause": true,
+      "backButtonLabel": null,
+      "connector": {
+        "isGoTo": null,
+        "processMetadataValues": [],
+        "targetReference": "Get_Existing_Client"
+      },
+      "description": null,
+      "elementSubtype": null,
+      "fields": [
+        {
+          "choiceReferences": null,
+          "dataType": "String",
+          "dataTypeMappings": [],
+          "defaultSelectedChoiceReference": null,
+          "defaultValue": null,
+          "description": null,
+          "extensionName": null,
+          "fieldText": "Client Name",
+          "fieldType": "InputField",
+          "fields": [],
+          "helpText": null,
+          "inputParameters": [],
+          "inputsOnNextNavToAssocScrn": null,
+          "isDisabled": null,
+          "isReadOnly": null,
+          "isRequired": true,
+          "isVisible": null,
+          "name": "txtClientName",
+          "objectFieldReference": null,
+          "outputParameters": [],
+          "processMetadataValues": [],
+          "regionContainerType": null,
+          "scale": null,
+          "storeOutputAutomatically": null,
+          "validationRule": null,
+          "visibilityRule": null
+        },
+        {
+          "choiceReferences": null,
+          "dataType": null,
+          "dataTypeMappings": [],
+          "defaultSelectedChoiceReference": null,
+          "defaultValue": null,
+          "description": null,
+          "extensionName": "flowruntime:email",
+          "fieldText": null,
+          "fieldType": "ComponentInstance",
+          "fields": [],
+          "helpText": null,
+          "inputParameters": [],
+          "inputsOnNextNavToAssocScrn": "UseStoredValues",
+          "isDisabled": null,
+          "isReadOnly": null,
+          "isRequired": true,
+          "isVisible": null,
+          "name": "txtEmail",
+          "objectFieldReference": null,
+          "outputParameters": [],
+          "processMetadataValues": [],
+          "regionContainerType": null,
+          "scale": null,
+          "storeOutputAutomatically": true,
+          "validationRule": null,
+          "visibilityRule": null
+        },
+        {
+          "choiceReferences": null,
+          "dataType": "String",
+          "dataTypeMappings": [],
+          "defaultSelectedChoiceReference": null,
+          "defaultValue": null,
+          "description": null,
+          "extensionName": null,
+          "fieldText": "Case Name",
+          "fieldType": "InputField",
+          "fields": [],
+          "helpText": null,
+          "inputParameters": [],
+          "inputsOnNextNavToAssocScrn": null,
+          "isDisabled": null,
+          "isReadOnly": null,
+          "isRequired": true,
+          "isVisible": null,
+          "name": "txtCaseName",
+          "objectFieldReference": null,
+          "outputParameters": [],
+          "processMetadataValues": [],
+          "regionContainerType": null,
+          "scale": null,
+          "storeOutputAutomatically": null,
+          "validationRule": null,
+          "visibilityRule": null
+        },
+        {
+          "choiceReferences": null,
+          "dataType": null,
+          "dataTypeMappings": [],
+          "defaultSelectedChoiceReference": null,
+          "defaultValue": null,
+          "description": null,
+          "extensionName": null,
+          "fieldText": "Description",
+          "fieldType": "LargeTextArea",
+          "fields": [],
+          "helpText": null,
+          "inputParameters": [],
+          "inputsOnNextNavToAssocScrn": null,
+          "isDisabled": null,
+          "isReadOnly": null,
+          "isRequired": false,
+          "isVisible": null,
+          "name": "txtDescription",
+          "objectFieldReference": null,
+          "outputParameters": [],
+          "processMetadataValues": [],
+          "regionContainerType": null,
+          "scale": null,
+          "storeOutputAutomatically": null,
+          "validationRule": null,
+          "visibilityRule": null
+        },
+        {
+          "choiceReferences": [
+            "Criminal",
+            "Civil",
+            "Corporate",
+            "Family",
+            "Labor"
+          ],
+          "dataType": "String",
+          "dataTypeMappings": [],
+          "defaultSelectedChoiceReference": null,
+          "defaultValue": null,
+          "description": null,
+          "extensionName": null,
+          "fieldText": "Practice Area",
+          "fieldType": "DropdownBox",
+          "fields": [],
+          "helpText": null,
+          "inputParameters": [],
+          "inputsOnNextNavToAssocScrn": null,
+          "isDisabled": null,
+          "isReadOnly": null,
+          "isRequired": false,
+          "isVisible": null,
+          "name": "pickPracticeArea",
+          "objectFieldReference": null,
+          "outputParameters": [],
+          "processMetadataValues": [],
+          "regionContainerType": null,
+          "scale": null,
+          "storeOutputAutomatically": null,
+          "validationRule": null,
+          "visibilityRule": null
+        }
+      ],
+      "helpText": null,
+      "label": "Get Info",
+      "locationX": 669,
+      "locationY": 182,
+      "name": "Get_Info",
+      "nextOrFinishButtonLabel": null,
+      "pauseButtonLabel": null,
+      "pausedText": null,
+      "processMetadataValues": [],
+      "rules": [],
+      "showFooter": true,
+      "showHeader": true
+    },
+    {
+      "allowBack": true,
+      "allowFinish": true,
+      "allowPause": true,
+      "backButtonLabel": null,
+      "connector": null,
+      "description": null,
+      "elementSubtype": null,
+      "fields": [
+        {
+          "choiceReferences": null,
+          "dataType": null,
+          "dataTypeMappings": [],
+          "defaultSelectedChoiceReference": null,
+          "defaultValue": null,
+          "description": null,
+          "extensionName": null,
+          "fieldText": "<p>Case created successfully!</p><p>Case: {!txtCaseName}</p><p>Client: {!txtClientName}</p><p>view your CaseId:{!varMatterId}</p><p><br></p><p><br></p><p><br></p>",
+          "fieldType": "DisplayText",
+          "fields": [],
+          "helpText": null,
+          "inputParameters": [],
+          "inputsOnNextNavToAssocScrn": null,
+          "isDisabled": null,
+          "isReadOnly": null,
+          "isRequired": null,
+          "isVisible": null,
+          "name": "txtSuccess",
+          "objectFieldReference": null,
+          "outputParameters": [],
+          "processMetadataValues": [],
+          "regionContainerType": null,
+          "scale": null,
+          "storeOutputAutomatically": null,
+          "validationRule": null,
+          "visibilityRule": null
+        }
+      ],
+      "helpText": null,
+      "label": "Success",
+      "locationX": 669,
+      "locationY": 914,
+      "name": "Success_Screen",
+      "nextOrFinishButtonLabel": null,
+      "pauseButtonLabel": null,
+      "pausedText": null,
+      "processMetadataValues": [],
+      "rules": [],
+      "showFooter": true,
+      "showHeader": true
+    }
+  ],
+  "sourceTemplate": null,
+  "start": {
+    "connector": {
+      "isGoTo": null,
+      "processMetadataValues": [],
+      "targetReference": "Get_Info"
+    },
+    "description": null,
+    "doesRequireRecordChangedToMeetCriteria": null,
+    "elementSubtype": null,
+    "filterFormula": null,
+    "filterLogic": null,
+    "filters": [],
+    "label": null,
+    "locationX": 543,
+    "locationY": 48,
+    "name": null,
+    "object": null,
+    "objectContainer": null,
+    "processMetadataValues": [],
+    "recordTriggerType": null,
+    "schedule": null,
+    "scheduledPaths": [],
+    "segment": null,
+    "triggerType": null
+  },
+  "startElementReference": null,
+  "status": "Active",
+  "steps": [],
+  "subflows": [],
+  "textTemplates": [],
+  "timeZoneSidKey": null,
+  "transforms": [],
+  "triggerOrder": null,
+  "urls": null,
+  "variables": [
+    {
+      "apexClass": null,
+      "dataType": "String",
+      "description": null,
+      "isCollection": false,
+      "isInput": false,
+      "isOutput": true,
+      "name": "varClientId",
+      "objectType": null,
+      "processMetadataValues": [],
+      "scale": null,
+      "value": null
+    },
+    {
+      "apexClass": null,
+      "dataType": "String",
+      "description": null,
+      "isCollection": false,
+      "isInput": false,
+      "isOutput": true,
+      "name": "varMatterId",
+      "objectType": null,
+      "processMetadataValues": [],
+      "scale": null,
+      "value": null
+    }
+  ],
+  "waits": []
+}
