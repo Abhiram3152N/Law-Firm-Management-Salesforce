@@ -1,21 +1,42 @@
-# Phase 1: Problem Understanding & Industry Analysis
+# Phase 1: Client Intake Flow
 
-## Requirement Gathering
-- Collected key requirements for the law firm project, including client types, case management needs, billing, and operational workflows.  
-- Documented and organized requirements by priority.
+###  Goal
+Capture client and Matter details via a guided screen flow and automatically create records.
 
-## Stakeholder Analysis
-- Identified stakeholders such as lawyers, paralegals, clients, and administrative staff.  
-- Analyzed their expectations, responsibilities, and pain points.
+---
 
-## Business Process Mapping
-- Mapped existing workflows to identify bottlenecks and inefficiencies.  
-- Used process diagrams to visualize current operations.
+##  Flow Configuration
 
-## Industry-specific Use Case Analysis
-- Analyzed legal industry use cases including matter management, billing, client intake, and conflict checks.  
-- Shortlisted feasible use cases for Salesforce implementation.
+**Flow Type:** Screen Flow  
+**Name:** Intake Flow
 
-## AppExchange Exploration
-- Explored Salesforce AppExchange for available apps and solutions.  
-- Evaluated which ready-made apps could reduce development time and enhance functionality.
+###  Elements
+
+1. **Screen (Client Input)**
+   - `txtClientName`
+   - `txtEmail`
+   - `txtPhone`
+
+2. **Screen (Case Details)**
+   - `txtMatterName`
+   - `pickPracticeArea` (Picklist: Criminal, Civil, Corporate)
+
+3. **Create Records**
+   - Object: `Client__c`
+   - Fields: Name, Email, Phone
+
+4. **Create Records**
+   - Object: `Matter__c`
+   - Fields: Matter Name, Practice Area, Client Lookup
+
+---
+
+##  Deployment
+- **Setup → Flows → New Flow → Screen Flow**
+- Add the above elements.
+- Activate the flow.
+
+---
+
+##  Output
+Each intake automatically creates a **Client** and **Matter** record linked together.

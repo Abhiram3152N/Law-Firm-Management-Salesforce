@@ -1,53 +1,27 @@
-# Phase 2: Org Setup & Configuration
+# Phase 2: Prevent Duplicate Clients
 
-## Salesforce Editions
-- Selected the Salesforce Developer edition that best fits the law firm's requirements.  
-- Considered features, storage limits, and scalability for future growth.
+###  Goal
+Avoid creating duplicate client records during intake.
 
-## Company Profile Setup
-- Configured company information such as name, address, default currency, and business hours.  
-- Defined business hours and holiday calendars for accurate case tracking and service-level agreements.
+---
 
-## Business Hours & Holidays
-- Set official business hours for the law firm.  
-- Added holidays to ensure accurate scheduling of cases, tasks, and workflow automation.
+##  Flow Enhancement
+Before creating a new client:
 
-## Fiscal Year Settings
-- Configured the fiscal year to align with the law firm’s accounting and reporting cycle.  
-- Decided between standard or custom fiscal year based on reporting requirements.
+1. Add **Get Records**
+   - Object: `Client__c`
+   - Condition: `Name = {!txtClientName}` OR `Email = {!txtEmail}`
+   - Store First Record Only = TRUE
 
-## User Setup & Licenses
-- Created user accounts for lawyers, paralegals, administrative staff, and other team members.  
-- Assigned appropriate Salesforce licenses according to roles and responsibilities.
+2. Add **Decision**
+   - Label: "Existing Client?"
+   - Condition: `Get_Existing_Client.Id` **is null**
 
-## Profiles
-- Defined profiles to control access to objects, fields, and permissions.  
-- Ensured lawyers and staff have access only to the data and features they need.
+3. In **True Path** → Create new `Client__c`
+4. In **False Path** → Use existing client: varClientId = {!Get_Existing_Client.Id}
 
-## Roles
-- Set up a role hierarchy reflecting the law firm’s organizational structure.  
-- Enabled proper record-level access based on seniority and department.
 
-## Permission Sets
-- Created permission sets to grant additional access beyond profiles when needed.  
-- Used to handle exceptions without changing core profiles.
+---
 
-## Organization-Wide Defaults (OWD)
-- Configured OWD to define baseline record access for objects like Matter, Contact, and Invoice.  
-- Ensured sensitive data is protected while allowing collaboration where necessary.
-
-## Sharing Rules
-- Created sharing rules to extend access to records for specific groups or roles.  
-- Automated record visibility based on business requirements.
-
-## Login Access Policies
-- Configured login policies, IP restrictions, and session settings to ensure security.  
-- Allowed admins and support staff controlled access when needed.
-
-## Development Org Setup
-- Established a development org for customizations, testing, and experimentation.  
-- Ensured no impact on the production environment during development.
-
-## Sandbox Usage
-- Set up sandbox environments (Developer) for testing and training.  
-- Followed a sandbox refresh and deployment strategy to maintain data integrity.
+##  Output
+Flow checks existing clients by name or email and only creates new ones if needed.
