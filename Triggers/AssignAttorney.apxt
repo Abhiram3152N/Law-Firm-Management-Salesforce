@@ -1,0 +1,18 @@
+trigger AssignAttorney on Matter__c (before insert) {
+    // Step 1: Fetch all active attorneys with expertise areas
+    Map<String, Id> attorneyByArea = new Map<String, Id>();
+    for (User u : [SELECT Id, Expertise_Area__c FROM User WHERE IsActive = TRUE AND Expertise_Area__c != null]) {
+        if (!attorneyByArea.containsKey(u.Expertise_Area__c)) {
+            attorneyByArea.put(u.Expertise_Area__c, u.Id);
+        }
+    }
+
+    // Step 2: Assign matching attorney based on case Practice Area
+    for (Matter__c c : Trigger.new) {
+        if (c.Assigned_Attorney__c == null && c.Practice_Area__c != null) {
+            if (attorneyByArea.containsKey(c.Practice_Area__c)) {
+                c.Assigned_Attorney__c = attorneyByArea.get(c.Practice_Area__c);
+            }
+        }
+    }
+}
