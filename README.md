@@ -22,3 +22,4 @@ This project automates client intake, attorney assignment, billing closure, and 
 4. [Auto-Close Billing](Docs/Phase_4.md)
 5. [Reports and Dashboard](Docs/Phase_5.md)
 6. [Profiles and Permissions](Docs/Phase_6.md)
+7. [Case Summary LWC](Docs/Phase_7.md)
