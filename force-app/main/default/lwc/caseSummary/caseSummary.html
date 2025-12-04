@@ -1,0 +1,31 @@
+<template>
+  <lightning-card title="Case Summary" icon-name="standard:case">
+    <div class="slds-p-around_medium">
+      <lightning-record-view-form record-id={recordId} object-api-name="Matter__c">
+        <div class="slds-grid slds-wrap">
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-output-field field-name="Name"></lightning-output-field>
+            <lightning-output-field field-name="Client__c"></lightning-output-field>
+            <lightning-output-field field-name="Assigned_Attorney__c"></lightning-output-field>
+          </div>
+          <div class="slds-col slds-size_1-of-2">
+            <lightning-output-field field-name="Status__c"></lightning-output-field>
+            <lightning-output-field field-name="Practice_Area__c"></lightning-output-field>
+            <lightning-output-field field-name="Days_Open__c"></lightning-output-field>
+          </div>
+        </div>
+      </lightning-record-view-form>
+
+      <template if:true={totalAmount}>
+        <div class="slds-m-top_medium">
+          <strong>Total Invoice Amount:</strong>
+          <span>₹{totalAmount}</span>
+        </div>
+      </template>
+
+      <template if:true={error}>
+        <div class="slds-text-color_error slds-m-top_small">{error}</div>
+      </template>
+    </div>
+  </lightning-card>
+</template>
